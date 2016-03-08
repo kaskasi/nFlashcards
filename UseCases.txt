@@ -1,0 +1,5 @@
+MVP
+1. Erstellen und Speichern einer Lernkarte
+2. Anzeigen einer Lernkarte
+3. Hinzufügen von Lerninhalten zu einer Karte
+4. Abfragen von Lerninhalten

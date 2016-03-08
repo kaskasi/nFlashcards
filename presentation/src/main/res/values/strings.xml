@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">nFlashcards</string>
+    <string name="title_activity_n_flashcards">nFlashcards</string>
+    <string name="action_settings">Settings</string>
+</resources>
