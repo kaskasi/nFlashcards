@@ -10,8 +10,8 @@ configurations {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'junit:junit:4.12'
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'io.reactivex:rxjava:1.1.0'
+    testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
 }

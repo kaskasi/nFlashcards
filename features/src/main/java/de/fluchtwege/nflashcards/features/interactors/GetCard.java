@@ -1,30 +1,25 @@
 package de.fluchtwege.nflashcards.features.interactors;
 
-import java.util.ArrayList;
-
 import de.fluchtwege.nflashcards.features.boundaries.DataSource;
-import de.fluchtwege.nflashcards.features.models.Content;
 import de.fluchtwege.nflashcards.features.models.FlashCard;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
 
-public class CreateCard {
+public class GetCard {
 
-	public Observable<FlashCard> createCard(final DataSource dataSource) {
+	public Observable<FlashCard> getCard(final DataSource dataSource, final int cardId) {
 		return Observable.create(new Observable.OnSubscribe<FlashCard>() {
 			@Override
 			public void call(final Subscriber<? super FlashCard> subscriber) {
-				final FlashCard flashCard = new FlashCard(new ArrayList<Content>());
-				dataSource.createCard(flashCard).subscribe(new Action1<Void>() {
+				dataSource.getCard(cardId).subscribe(new Action1<FlashCard>() {
 					@Override
-					public void call(Void aVoid) {
+					public void call(FlashCard flashCard) {
 						subscriber.onNext(flashCard);
 					}
 				});
 			}
 		});
 	}
-
 
 }

@@ -3,7 +3,7 @@ package de.fluchtwege.nflashcards.features.test;
 import org.junit.Test;
 import org.mockito.ArgumentMatcher;
 
-import de.fluchtwege.nflashcards.features.boundaries.IRepository;
+import de.fluchtwege.nflashcards.features.boundaries.DataSource;
 import de.fluchtwege.nflashcards.features.interactors.CreateCard;
 import de.fluchtwege.nflashcards.features.models.FlashCard;
 
@@ -15,7 +15,7 @@ public class TestCreateCards {
 
 	@Test
 	public void CreateCardWillSaveCardToRepository() {
-		IRepository repository = mock(IRepository.class);
+		DataSource repository = mock(DataSource.class);
 		CreateCard createCard = new CreateCard(repository);
 		createCard.execute();
 		verify(repository).saveFlashcard(argThat(new ArgumentMatcher<FlashCard>() {
