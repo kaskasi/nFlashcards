@@ -1,7 +1,6 @@
 package de.fluchtwege.nflashcards.features.interactors;
 
 import de.fluchtwege.nflashcards.features.boundaries.DataSource;
-import de.fluchtwege.nflashcards.features.models.Content;
 import de.fluchtwege.nflashcards.features.models.FlashCard;
 import rx.Observable;
 import rx.Subscriber;

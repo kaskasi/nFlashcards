@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.fluchtwege.nflashcards.features.boundaries.DataSource;
-import de.fluchtwege.nflashcards.features.models.Content;
+import de.fluchtwege.nflashcards.features.models.CardContent;
+import de.fluchtwege.nflashcards.features.models.Category;
 import de.fluchtwege.nflashcards.features.models.FlashCard;
+import de.fluchtwege.nflashcards.features.models.Group;
 import rx.Observable;
 import rx.Subscriber;
 
 public class Repository implements DataSource {
 
 	private List<FlashCard> cards = new ArrayList<>();
+	private List<Group> groups = new ArrayList<>();
+	private List<Category> categories = new ArrayList<>();
 
 	@Override
 	public Observable<Void> editCard(final FlashCard card, final int cardId) {
@@ -20,6 +24,7 @@ public class Repository implements DataSource {
 			public void call(Subscriber<? super Void> subscriber) {
 				cards.set(cardId, card);
 				subscriber.onNext(null);
+				subscriber.onCompleted();
 			}
 		});
 	}
@@ -29,30 +34,34 @@ public class Repository implements DataSource {
 		return Observable.create(new Observable.OnSubscribe<Void>() {
 			@Override
 			public void call(Subscriber<? super Void> subscriber) {
+				card.setId(cards.size());
 				cards.add(card);
 				subscriber.onNext(null);
+				subscriber.onCompleted();
 			}
 		});
 	}
 
 	@Override
-	public Observable<Void> addContent(final Content content, final int cardId) {
+	public Observable<Void> addContent(final CardContent content, final int cardId) {
 		return Observable.create(new Observable.OnSubscribe<Void>() {
 			@Override
 			public void call(Subscriber<? super Void> subscriber) {
 				cards.get(cardId).addContent(content);
 				subscriber.onNext(null);
+				subscriber.onCompleted();
 			}
 		});
 	}
 
 	@Override
-	public Observable<Void> removeContent(final Content content, final int cardId, final int contentId) {
+	public Observable<Void> removeContent(final CardContent content, final int cardId, final int contentId) {
 		return Observable.create(new Observable.OnSubscribe<Void>() {
 			@Override
 			public void call(Subscriber<? super Void> subscriber) {
 				cards.get(cardId).removeContent(contentId);
 				subscriber.onNext(null);
+				subscriber.onCompleted();
 			}
 		});
 	}
@@ -62,8 +71,48 @@ public class Repository implements DataSource {
 		return Observable.create(new Observable.OnSubscribe<FlashCard>() {
 			@Override
 			public void call(Subscriber<? super FlashCard> subscriber) {
-				FlashCard flashCard = cards.get(cardId);
-				subscriber.onNext(flashCard);
+				if (cards.size() > cardId) {
+					FlashCard flashCard = cards.get(cardId);
+					subscriber.onNext(flashCard);
+					subscriber.onCompleted();
+				}
+			}
+		});
+	}
+
+	@Override
+	public Observable<Integer> createCategory(final Category category) {
+		return Observable.create(new Observable.OnSubscribe<Integer>() {
+			@Override
+			public void call(Subscriber<? super Integer> subscriber) {
+				category.setId(categories.size());
+				categories.add(category);
+				subscriber.onNext(categories.size() - 1);
+				subscriber.onCompleted();
+			}
+		});
+	}
+
+	@Override
+	public Observable<List<FlashCard>> getCards() {
+		return Observable.create(new Observable.OnSubscribe<List<FlashCard>>() {
+			@Override
+			public void call(Subscriber<? super List<FlashCard>> subscriber) {
+				subscriber.onNext(cards);
+				subscriber.onCompleted();
+			}
+		});
+	}
+
+	@Override
+	public Observable<Void> createGroup(final Group group) {
+		return Observable.create(new Observable.OnSubscribe<Void>() {
+			@Override
+			public void call(Subscriber<? super Void> subscriber) {
+				group.setId(categories.size());
+				groups.add(group);
+				subscriber.onNext(null);
+				subscriber.onCompleted();
 			}
 		});
 	}

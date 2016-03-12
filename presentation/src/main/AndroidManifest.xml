@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.view.nFlashcardsActivity"
+            android:name=".presentation.activity.nFlashcardsActivity"
             android:label="@string/title_activity_n_flashcards"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -18,6 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.activity.CreateCardActivity"
+            android:label="@string/addcard"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".presentation.activity.TestCardActivity"
+            android:label="@string/testcard"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
     </application>
 
 </manifest>

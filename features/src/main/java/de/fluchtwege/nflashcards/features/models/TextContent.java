@@ -3,16 +3,21 @@ package de.fluchtwege.nflashcards.features.models;
 /**
  * Created by Maraqopa on 09/03/16.
  */
-public class TextContent implements Content<String> {
+public class TextContent  {
 
 	private final String text;
+	private Category category;
 
-	public TextContent(final String text) {
+	public TextContent(final String text, final Category category) {
 		this.text = text;
+		this.category = category;
 	}
 
-	@Override
-	public String get() {
+	public String getText() {
 		return text;
+	}
+
+	public Category getCategory() {
+		return category;
 	}
 }

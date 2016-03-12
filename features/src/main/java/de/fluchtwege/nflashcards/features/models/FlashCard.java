@@ -4,25 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlashCard {
-	private List<Content> items = new ArrayList<>();
 
-	public FlashCard(List<Content> items) {
+	int id;
+
+	public int getId() {
+		return id;
+	}
+
+	private List<CardContent> items = new ArrayList<>();
+
+	public FlashCard(final List<CardContent> items) {
 		this.items = items;
 	}
 
-	public List<Content> get() {
+	public List<CardContent> getItems() {
 		return items;
 	}
 
-	public Content get(int index) {
+	public CardContent getCardContent(int index) {
 		return items.get(index);
 	}
 
-	public void addContent(Content content) {
+	public int addContent(CardContent content) {
 		items.add(content);
+		return items.size() - 1;
 	}
 
 	public void removeContent(int contentId) {
 		items.remove(contentId);
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

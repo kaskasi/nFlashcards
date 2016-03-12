@@ -2,4 +2,7 @@
     <string name="app_name">nFlashcards</string>
     <string name="title_activity_n_flashcards">nFlashcards</string>
     <string name="action_settings">Settings</string>
+    <string name="addcard">Add Card</string>
+    <string name="testcard">Test Card</string>
+
 </resources>
