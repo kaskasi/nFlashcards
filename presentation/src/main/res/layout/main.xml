@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="#12ff99"
+    android:background="@color/grey"
     tools:context=".presentation.activity.nFlashcardsActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -27,13 +26,34 @@
     <android.support.v7.widget.CardView
         android:layout_below="@id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/big">
 
         <LinearLayout
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal">
+
+            <Button
+                android:id="@+id/addcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/addcard"/>
+
+            <Button
+                android:id="@+id/cardlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cardlist"/>
+
+            <Button
+                android:id="@+id/testcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/testcard"/>
+        </LinearLayout>
 
 
     </android.support.v7.widget.CardView>

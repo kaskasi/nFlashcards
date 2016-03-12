@@ -1,4 +1,4 @@
-package de.fluchtwege.nflashcards.presentation.controller;
+package de.fluchtwege.nflashcards.presentation.flowcontroller;
 
 import de.fluchtwege.nflashcards.presentation.presenter.ViewModel;
 

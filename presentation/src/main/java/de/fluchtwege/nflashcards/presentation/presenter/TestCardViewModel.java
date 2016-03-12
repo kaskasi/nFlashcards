@@ -4,19 +4,17 @@ import de.fluchtwege.nflashcards.features.models.FlashCard;
 import de.fluchtwege.nflashcards.presentation.view.TestCardContainer;
 import rx.subjects.PublishSubject;
 
-/**
- * Created by Maraqopa on 11/03/16.
- */
 public class TestCardViewModel extends ViewModel<TestCardContainer> {
 
 	private final PublishSubject<String> subject;
 
-	public TestCardViewModel() {
+	public TestCardViewModel(final TestCardContainer testCardContainer) {
+		container = testCardContainer;
 		subject = PublishSubject.create();
-		container.setPublishSubject(subject);
 	}
 
 	public void update(FlashCard flashCard, int categoryIndex) {
+		container.setPublishSubject(subject);
 		container.update(flashCard, categoryIndex);
 	}
 

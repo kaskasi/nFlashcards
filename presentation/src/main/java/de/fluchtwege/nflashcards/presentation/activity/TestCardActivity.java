@@ -4,13 +4,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import de.fluchtwege.nflashcards.R;
-import de.fluchtwege.nflashcards.presentation.controller.TestFlowController;
+import de.fluchtwege.nflashcards.presentation.flowcontroller.TestFlowController;
 import de.fluchtwege.nflashcards.presentation.presenter.TestCardViewModel;
 import de.fluchtwege.nflashcards.presentation.view.TestCardContainer;
 
-/**
- * Created by Maraqopa on 10/03/16.
- */
 public class TestCardActivity extends BaseActivity<TestCardViewModel, TestCardContainer> {
 
 	@Override
@@ -22,8 +19,8 @@ public class TestCardActivity extends BaseActivity<TestCardViewModel, TestCardCo
 	}
 
 	@Override
-	public TestCardViewModel createViewModel() {
-		return new TestCardViewModel();
+	public TestCardViewModel createViewModel(TestCardContainer container) {
+		return new TestCardViewModel(container);
 	}
 
 	@Override

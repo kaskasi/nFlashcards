@@ -15,12 +15,14 @@ public class CreateCardViewModel extends ViewModel<CreateCardContainer> {
 
 	private PublishSubject<FlashCard> subject;
 
-	public CreateCardViewModel() {
+	public CreateCardViewModel(final CreateCardContainer createCardContainer) {
+		container = createCardContainer;
 		new GetCategory().getCategories(nFlashcardsActivity.repository).subscribe(new Action1<List<Category>>() {
 			@Override
 			public void call(final List<Category> categories) {
-				container.setCategories(categories.toArray(new Category[categories.size()]));
 				subscribeToCardCreated(container);
+				container.update(categories);
+
 			}
 		});
 	}

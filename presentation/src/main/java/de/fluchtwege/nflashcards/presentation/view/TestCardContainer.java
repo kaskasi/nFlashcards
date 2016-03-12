@@ -18,15 +18,18 @@ import rx.subjects.PublishSubject;
  */
 public class TestCardContainer extends ViewContainer implements TextWatcher {
 
-	private final TextView category;
-	private final TextView given;
+	private TextView category;
+	private TextView given;
 	private EditText entry;
 	private PublishSubject<String> publishSubject;
 
-	public TestCardContainer(Context activity) {
-		super(activity);
-		final LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		inflater.inflate(R.layout.testcard, this, true);
+	public TestCardContainer(Context context) {
+		super(context);
+	}
+
+	@Override
+	public void inflate(LayoutInflater inflater) {
+		inflater.inflate(R.layout.test_card, this, true);
 
 		entry = (EditText) findViewById(R.id.entry);
 		entry.addTextChangedListener(this);
