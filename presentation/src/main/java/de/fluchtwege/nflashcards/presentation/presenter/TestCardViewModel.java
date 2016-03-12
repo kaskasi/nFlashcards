@@ -7,13 +7,11 @@ import rx.subjects.PublishSubject;
 /**
  * Created by Maraqopa on 11/03/16.
  */
-public class TestCardViewModel implements ViewModel{
+public class TestCardViewModel extends ViewModel<TestCardContainer> {
 
-	private final TestCardContainer container;
 	private final PublishSubject<String> subject;
 
-	public TestCardViewModel(TestCardContainer container) {
-		this.container = container;
+	public TestCardViewModel() {
 		subject = PublishSubject.create();
 		container.setPublishSubject(subject);
 	}

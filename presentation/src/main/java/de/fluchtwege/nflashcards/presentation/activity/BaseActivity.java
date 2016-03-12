@@ -7,23 +7,23 @@ import de.fluchtwege.nflashcards.presentation.presenter.ViewModel;
 import de.fluchtwege.nflashcards.presentation.view.ViewContainer;
 
 /**
- * Created by Maraqopa on 11/03/16.
+ *
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<T extends ViewModel, R extends ViewContainer> extends AppCompatActivity {
 
-	protected ViewContainer container;
-	protected ViewModel viewModel;
+	protected R container;
+	protected T viewModel;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		container = createContainer();
-		viewModel = createViewModel(container);
+		viewModel = createViewModel();
+		viewModel.setViewContainer(container);
 		setContentView(container);
 	}
 
-	public abstract ViewModel createViewModel(ViewContainer container);
+	public abstract T createViewModel();
 
-	public abstract ViewContainer createContainer();
+	public abstract R createContainer();
 
 }

@@ -17,15 +17,12 @@ import rx.schedulers.Schedulers;
 
 import static de.fluchtwege.nflashcards.presentation.activity.nFlashcardsActivity.repository;
 
-/**
- * Created by Maraqopa on 11/03/16.
- */
-public class TestFlowController {
+public class TestFlowController implements FlowController<TestCardViewModel> {
 
 	private int numberOfCards;
 	private Set<Integer> testedCards = new HashSet<>();
 
-
+	@Override
 	public void perform(final TestCardViewModel viewModel) {
 		new GetCard().getCards(repository).subscribe(new Action1<List<FlashCard>>() {
 			@Override

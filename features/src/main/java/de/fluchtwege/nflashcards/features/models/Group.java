@@ -2,9 +2,6 @@ package de.fluchtwege.nflashcards.features.models;
 
 import java.util.List;
 
-/**
- * Created by Maraqopa on 09/03/16.
- */
 public class Group {
 	List<FlashCard> cards;
 	private int id;

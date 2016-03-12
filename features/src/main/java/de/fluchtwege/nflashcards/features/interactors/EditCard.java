@@ -6,9 +6,6 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
 
-/**
- * Created by Maraqopa on 09/03/16.
- */
 public class EditCard {
 
 	public Observable<FlashCard> editCard(final DataSource dataSource, final FlashCard card, final int index) {

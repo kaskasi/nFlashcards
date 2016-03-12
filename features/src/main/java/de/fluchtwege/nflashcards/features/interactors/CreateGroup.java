@@ -11,9 +11,6 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
 
-/**
- * Created by Maraqopa on 11/03/16.
- */
 public class CreateGroup {
 
 	public Observable<Group> createCard(final DataSource dataSource, final List<FlashCard> cards) {

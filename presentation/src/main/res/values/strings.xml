@@ -4,5 +4,6 @@
     <string name="action_settings">Settings</string>
     <string name="addcard">Add Card</string>
     <string name="testcard">Test Card</string>
+    <string name="category_name">Name der Kategorie</string>
 
 </resources>

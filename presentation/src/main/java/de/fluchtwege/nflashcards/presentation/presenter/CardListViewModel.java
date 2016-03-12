@@ -1,7 +1,7 @@
 package de.fluchtwege.nflashcards.presentation.presenter;
 
-/**
- * Created by Maraqopa on 11/03/16.
- */
-public class CardListViewModel {
+import de.fluchtwege.nflashcards.presentation.view.CardListContainer;
+
+public class CardListViewModel extends ViewModel<CardListContainer> {
+
 }

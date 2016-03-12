@@ -6,14 +6,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import de.fluchtwege.nflashcards.R;
 import de.fluchtwege.nflashcards.features.models.FlashCard;
-import de.fluchtwege.nflashcards.presentation.presenter.ViewModel;
-import rx.Observable;
-import rx.Subscriber;
 import rx.subjects.PublishSubject;
 
 

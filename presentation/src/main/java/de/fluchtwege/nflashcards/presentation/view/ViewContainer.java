@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.FrameLayout;
 
 /**
- * Created by Maraqopa on 11/03/16.
+ * Viewbinding and Viewinteraction
  */
 public abstract class ViewContainer extends FrameLayout {
 	public ViewContainer(Context context) {

@@ -25,4 +25,8 @@ public interface DataSource {
 	Observable<List<FlashCard>> getCards();
 
 	Observable<Void> createGroup(Group group);
+
+	Observable getCategories();
+
+	Observable getCategory(int categoryId);
 }

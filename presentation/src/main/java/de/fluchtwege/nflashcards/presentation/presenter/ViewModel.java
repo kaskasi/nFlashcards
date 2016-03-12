@@ -3,7 +3,18 @@ package de.fluchtwege.nflashcards.presentation.presenter;
 import de.fluchtwege.nflashcards.presentation.view.ViewContainer;
 
 /**
- * Created by Maraqopa on 11/03/16.
+ * Viewcontroller
  */
-public interface ViewModel {
+public abstract class ViewModel<T extends ViewContainer> {
+
+	protected T container;
+
+	public void setViewContainer(T viewContainer){
+		container = viewContainer;
+	}
+
+	public void destroy() {
+		container = null;
+	}
+
 }

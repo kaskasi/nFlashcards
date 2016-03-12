@@ -20,6 +20,7 @@ public class CreateCard {
 					@Override
 					public void call(Void aVoid) {
 						subscriber.onNext(flashCard);
+						subscriber.onCompleted();
 					}
 				});
 			}
@@ -27,4 +28,18 @@ public class CreateCard {
 	}
 
 
+	public Observable<FlashCard> createCard(final DataSource dataSource, final FlashCard cardToCreate) {
+		return Observable.create(new Observable.OnSubscribe<FlashCard>() {
+			@Override
+			public void call(final Subscriber<? super FlashCard> subscriber) {
+				dataSource.createCard(cardToCreate).subscribe(new Action1<Void>() {
+					@Override
+					public void call(Void aVoid) {
+						subscriber.onNext(cardToCreate);
+						subscriber.onCompleted();
+					}
+				});
+			}
+		});
+	}
 }

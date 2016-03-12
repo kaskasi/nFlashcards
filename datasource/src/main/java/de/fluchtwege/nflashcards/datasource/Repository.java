@@ -117,5 +117,27 @@ public class Repository implements DataSource {
 		});
 	}
 
+	@Override
+	public Observable<List<Category>> getCategories() {
+		return Observable.create(new Observable.OnSubscribe<List<Category>>() {
+			@Override
+			public void call(Subscriber<? super List<Category>> subscriber) {
+				subscriber.onNext(categories);
+				subscriber.onCompleted();
+			}
+		});
+	}
+
+	@Override
+	public Observable<Category> getCategory(final int categoryId) {
+		return Observable.create(new Observable.OnSubscribe<Category>() {
+			@Override
+			public void call(Subscriber<? super Category> subscriber) {
+				subscriber.onNext(categories.get(categoryId));
+				subscriber.onCompleted();
+			}
+		});
+	}
+
 
 }

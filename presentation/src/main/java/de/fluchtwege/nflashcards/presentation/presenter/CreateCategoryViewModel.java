@@ -1,7 +1,6 @@
 package de.fluchtwege.nflashcards.presentation.presenter;
 
-/**
- * Created by Maraqopa on 11/03/16.
- */
-public class CreateCategoryViewModel {
+import de.fluchtwege.nflashcards.presentation.view.CreateCategoryContainer;
+
+public class CreateCategoryViewModel extends ViewModel<CreateCategoryContainer> {
 }
