@@ -10,9 +10,9 @@ import rx.functions.Action1;
 /**
  * Created by Maraqopa on 10/03/16.
  */
-public class TestCard {
+public class EvaluateInput {
 
-	public Observable<Boolean> testCard(final DataSource dataSource, final int cardId, final int categoryId, final String entry) {
+	public Observable<Boolean> evaluateInput(final DataSource dataSource, final int cardId, final int categoryId, final String entry) {
 		return Observable.create(new Observable.OnSubscribe<Boolean>() {
 			@Override
 			public void call(final Subscriber<? super Boolean> subscriber) {

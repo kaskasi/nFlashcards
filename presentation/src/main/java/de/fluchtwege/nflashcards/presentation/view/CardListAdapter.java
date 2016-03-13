@@ -21,9 +21,9 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		View view = LayoutInflater.from(parent.getContext())
+		final View view = LayoutInflater.from(parent.getContext())
 				.inflate(R.layout.card_item, parent, false);
-		ViewHolder holder = new ViewHolder(view);
+		final ViewHolder holder = new ViewHolder(view);
 		holder.kanji = (TextView) view.findViewById(R.id.kanji);
 		holder.hiragana = (TextView) view.findViewById(R.id.hiragana);
 		holder.katakana = (TextView) view.findViewById(R.id.katakana);
@@ -33,7 +33,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position) {
-		FlashCard card = cards.get(position);
+		final FlashCard card = cards.get(position);
 		holder.kanji.setText((CharSequence) card.getCardContent(0).getValue());
 		holder.hiragana.setText((CharSequence) card.getCardContent(1).getValue());
 		holder.katakana.setText((CharSequence) card.getCardContent(2).getValue());
@@ -51,7 +51,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
 		TextView katakana;
 		TextView deutsch;
 
-		public ViewHolder(View itemView) {
+		public ViewHolder(final View itemView) {
 			super(itemView);
 		}
 	}

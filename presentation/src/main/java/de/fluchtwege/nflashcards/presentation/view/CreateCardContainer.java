@@ -14,13 +14,12 @@ import java.util.List;
 import de.fluchtwege.nflashcards.R;
 import de.fluchtwege.nflashcards.features.models.CardContent;
 import de.fluchtwege.nflashcards.features.models.Category;
-import de.fluchtwege.nflashcards.features.models.FlashCard;
 import rx.subjects.PublishSubject;
 
 public class CreateCardContainer extends ViewContainer implements View.OnClickListener {
 
 	private List<Category> categories;
-	private PublishSubject<FlashCard> subject;
+	private PublishSubject<List<CardContent>> subject;
 
 	private EditText kanjiEntry;
 	private EditText hiraganaEntry;
@@ -32,7 +31,7 @@ public class CreateCardContainer extends ViewContainer implements View.OnClickLi
 	private TextView katakanaCategory;
 	private TextView deutschCategory;
 
-	public CreateCardContainer(Context activity) {
+	public CreateCardContainer(final Context activity) {
 		super(activity);
 		subject = PublishSubject.create();
 	}
@@ -60,22 +59,22 @@ public class CreateCardContainer extends ViewContainer implements View.OnClickLi
 	@Override
 	public void onClick(View view) {
 		if (view.getId() == R.id.done) {
-			FlashCard card = new FlashCard(new ArrayList<CardContent>(0));
-			card.addContent(new CardContent(categories.get(0), kanjiEntry.getText().toString()));
-			card.addContent(new CardContent(categories.get(1), hiraganaEntry.getText().toString()));
-			card.addContent(new CardContent(categories.get(2), katakanaEntry.getText().toString()));
-			card.addContent(new CardContent(categories.get(3), deutschEntry.getText().toString()));
-			subject.onNext(card);
+			final List<CardContent> cardContents = new ArrayList<>(4);
+			cardContents.add(new CardContent(categories.get(0), kanjiEntry.getText().toString()));
+			cardContents.add(new CardContent(categories.get(1), hiraganaEntry.getText().toString()));
+			cardContents.add(new CardContent(categories.get(2), katakanaEntry.getText().toString()));
+			cardContents.add(new CardContent(categories.get(3), deutschEntry.getText().toString()));
+			subject.onNext(cardContents);
 			subject.onCompleted();
 		}
 	}
 
-	public void update(List<Category> categoryList) {
+	public void update(final List<Category> categoryList) {
 		categories = categoryList;
 
-		katakanaCategory.setText(categories.get(2).getName());
-		hiraganaCategory.setText(categories.get(1).getName());
 		kanjiCategory.setText(categories.get(0).getName());
+		hiraganaCategory.setText(categories.get(1).getName());
+		katakanaCategory.setText(categories.get(2).getName());
 		deutschCategory.setText(categories.get(3).getName());
 	}
 
@@ -83,7 +82,7 @@ public class CreateCardContainer extends ViewContainer implements View.OnClickLi
 		((Activity) getContext()).finish();
 	}
 
-	public PublishSubject<FlashCard> getClickButtonSubject() {
+	public PublishSubject<List<CardContent>> getClickButtonSubject() {
 		return subject;
 	}
 

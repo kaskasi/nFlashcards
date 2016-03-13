@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import de.fluchtwege.nflashcards.features.interactors.GetCard;
-import de.fluchtwege.nflashcards.features.interactors.TestCard;
+import de.fluchtwege.nflashcards.features.interactors.EvaluateInput;
 import de.fluchtwege.nflashcards.features.models.FlashCard;
 import de.fluchtwege.nflashcards.presentation.presenter.TestCardViewModel;
 import rx.android.schedulers.AndroidSchedulers;
@@ -50,7 +50,7 @@ public class TestFlowController implements FlowController<TestCardViewModel> {
 	}
 
 	private void checkEntry(final String changedText, final List<FlashCard> cards, final TestCardViewModel viewModel, final int index) {
-		new TestCard().testCard(repository, index, 3, changedText)
+		new EvaluateInput().evaluateInput(repository, index, 3, changedText)
 				.subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribe(new Action1<Boolean>() {

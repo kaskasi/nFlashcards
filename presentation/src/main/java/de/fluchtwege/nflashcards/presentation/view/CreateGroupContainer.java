@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 
 public class CreateGroupContainer extends ViewContainer {
 
-	public CreateGroupContainer(Context context) {
+	public CreateGroupContainer(final Context context) {
 		super(context);
 	}
 

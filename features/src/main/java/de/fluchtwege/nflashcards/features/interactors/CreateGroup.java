@@ -1,19 +1,17 @@
 package de.fluchtwege.nflashcards.features.interactors;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.fluchtwege.nflashcards.features.boundaries.DataSource;
-import de.fluchtwege.nflashcards.features.models.CardContent;
-import de.fluchtwege.nflashcards.features.models.Group;
 import de.fluchtwege.nflashcards.features.models.FlashCard;
+import de.fluchtwege.nflashcards.features.models.Group;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
 
 public class CreateGroup {
 
-	public Observable<Group> createCard(final DataSource dataSource, final List<FlashCard> cards) {
+	public Observable<Group> createGroup(final DataSource dataSource, final List<FlashCard> cards) {
 		return Observable.create(new Observable.OnSubscribe<Group>() {
 			@Override
 			public void call(final Subscriber<? super Group> subscriber) {

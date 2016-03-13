@@ -23,7 +23,7 @@ public class TestCardContainer extends ViewContainer implements TextWatcher {
 	private EditText entry;
 	private PublishSubject<String> publishSubject;
 
-	public TestCardContainer(Context context) {
+	public TestCardContainer(final Context context) {
 		super(context);
 	}
 
@@ -37,7 +37,7 @@ public class TestCardContainer extends ViewContainer implements TextWatcher {
 		category = (TextView) findViewById(R.id.category);
 	}
 
-	public void update(FlashCard card, int categoryIndex) {
+	public void update(final FlashCard card, final int categoryIndex) {
 		given.setText((CharSequence) card.getCardContent(0).getValue());
 		category.setText(card.getCardContent(categoryIndex).getCategory().getName());
 		entry.setText("");
@@ -47,7 +47,7 @@ public class TestCardContainer extends ViewContainer implements TextWatcher {
 		publishSubject = subject;
 	}
 
-	public void updateTest(boolean testCorrect) {
+	public void updateTest(final boolean testCorrect) {
 		if (testCorrect) {
 			entry.setTextColor(getContext().getResources().getColor(R.color.green));
 		} else {

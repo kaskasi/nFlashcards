@@ -20,15 +20,15 @@ public class CardListContainer extends ViewContainer {
 	}
 
 	@Override
-	public void inflate(LayoutInflater inflater) {
-		View view = inflater.inflate(R.layout.card_list, this, true);
+	public void inflate(final LayoutInflater inflater) {
+		final View view = inflater.inflate(R.layout.card_list, this, true);
 		recyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
-		LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+		final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 		recyclerView.setLayoutManager(layoutManager);
 	}
 
-	public void update(List<FlashCard> cards) {
-		CardListAdapter adapter = new CardListAdapter(cards);
+	public void update(final List<FlashCard> cards) {
+		final CardListAdapter adapter = new CardListAdapter(cards);
 		recyclerView.setAdapter(adapter);
 	}
 }

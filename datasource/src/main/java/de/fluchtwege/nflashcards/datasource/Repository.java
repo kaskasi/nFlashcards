@@ -143,6 +143,28 @@ public class Repository implements DataSource {
 		});
 	}
 
+	@Override
+	public Observable<List<Group>> getGroups() {
+		return Observable.create(new Observable.OnSubscribe<List<Group>>() {
+			@Override
+			public void call(Subscriber<? super List<Group>> subscriber) {
+				subscriber.onNext(groups);
+				subscriber.onCompleted();
+			}
+		});
+	}
+
+	@Override
+	public Observable<Group> getGroup(final int groupId) {
+		return Observable.create(new Observable.OnSubscribe<Group>() {
+			@Override
+			public void call(Subscriber<? super Group> subscriber) {
+				subscriber.onNext(groups.get(groupId));
+				subscriber.onCompleted();
+			}
+		});
+	}
+
 
 	public void setupFakeData() {
 		categories.add(new Category("Kanji"));

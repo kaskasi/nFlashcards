@@ -13,21 +13,21 @@ import de.fluchtwege.nflashcards.presentation.activity.TestCardActivity;
 
 public class nFlashCardContainer extends ViewContainer implements View.OnClickListener {
 
-	public nFlashCardContainer(Context context) {
+	public nFlashCardContainer(final Context context) {
 		super(context);
 	}
 
 	@Override
 	public void inflate(LayoutInflater inflater) {
-		View view = inflater.inflate(R.layout.main, this, true);
+		final View view = inflater.inflate(R.layout.main, this, true);
 
-		Button addCardButton = (Button) view.findViewById(R.id.addcard);
+		final Button addCardButton = (Button) view.findViewById(R.id.addcard);
 		addCardButton.setOnClickListener(this);
 
-		Button cardListButton = (Button) view.findViewById(R.id.cardlist);
+		final Button cardListButton = (Button) view.findViewById(R.id.cardlist);
 		cardListButton.setOnClickListener(this);
 
-		Button testCardButton = (Button) view.findViewById(R.id.testcard);
+		final Button testCardButton = (Button) view.findViewById(R.id.testcard);
 		testCardButton.setOnClickListener(this);
 	}
 

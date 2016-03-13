@@ -26,7 +26,11 @@ public interface DataSource {
 
 	Observable<Void> createGroup(Group group);
 
-	Observable getCategories();
+	Observable<List<Category>> getCategories();
 
-	Observable getCategory(int categoryId);
+	Observable<Category> getCategory(int categoryId);
+
+	Observable<List<Group>> getGroups();
+
+	Observable<Group> getGroup(int groupId);
 }
